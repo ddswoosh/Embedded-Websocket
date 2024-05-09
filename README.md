@@ -12,8 +12,8 @@ The embedded rust will interact with this microcontroller and all binary stored 
 * AWS server hosting
 * Bare metal (Embedded) cargo
 * Rest API/Web Socket
-* Relational Databse
-* User auth
+* Relational Database
+* User authentication
 * Visual Studio
 * Docker
 
