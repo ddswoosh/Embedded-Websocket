@@ -7,11 +7,13 @@ The embedded rust will interact with this microcontroller and all binary stored 
 
 # Tech Stack
 * Rust
+* C#
 * Cotex-M
 * AWS server hosting
 * Bare metal (Embedded) cargo
 * Rest API/Web Socket
-* C#
+* Relational Databse
+* User auth
 * Visual Studio
 * Docker
 
