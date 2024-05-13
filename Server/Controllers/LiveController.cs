@@ -4,6 +4,10 @@ namespace Server.Controllers;
 
 public class LiveController : Controller
 {
+    public IActionResult Select()
+    {
+        return View();
+    }
     public IActionResult Pin1()
     {
         return View();
