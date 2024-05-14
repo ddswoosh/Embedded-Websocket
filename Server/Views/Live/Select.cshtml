@@ -6,9 +6,10 @@
 <div class="text-center">
     <h1 class="display-4">Please select a pin to view realtime data</h1>
     <body>
-        <select name="Pin" id ="Pin">
-            <option value = "Pin1">Pin 1 @{pin="Pin1";} </option>
-            <option value = "Pin2">Pin 2 @{pin="Pin2";}</option>
+        <label for="pinList">Choose a pin to view</label>
+        <select name="pinList" id ="pinList">
+            <option value = "Pin1">Pin 1</option>
+            <option value = "Pin2">Pin 2</option>
             <option value = "Pin3">Pin 3</option>
             <option value = "Pin4">Pin 4</option>
             <option value = "Pin5">Pin 5</option>
@@ -16,12 +17,17 @@
             <option value = "Pin7">Pin 7</option>
             <option value = "Pin7">Pin 7</option>
         </select>
-        <button class="buttonSelect">Select</button>
-        @* @{
-            <a class="nav-link text-light" asp-area="" asp-controller="Live" asp-action="@pin">Home</a>
-        } *@
+        <button class="buttonSelect" onclick="@(pin = buttonSelectClick())">Select</button>
+        @{
+            string buttonSelectClick()
+            {   
+                pin = "test";
+                Console.WriteLine(pin);
+                return pin;
+            }
+
+            
+        } 
+        <a class="nav-link text-light" asp-area="" asp-controller="Live" asp-action="@pin"></a>
     </body>
 </div>
-@{  
-    Console.WriteLine(pin);
-}
