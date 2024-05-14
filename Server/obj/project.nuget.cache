@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7qQjPcQ7IDp7733EXumtG1n5bayyhxCTb9WjKDDXQdbRsb7D3GllpIE1dt4xHLkTxIL3xFdN0s2irVNH2jh6yA==",
+  "dgSpecHash": "NyrGVzXASfozCzp7vfa57xc5SE9XA11lp6q9jLxLs5ZAvNY03JPE9MyYvjYA4R24kTE4mXBW+552UOc1QZVu3g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ddswoosh\\embedded-web-socket\\Server\\Server.csproj",
+  "projectFilePath": "c:\\Users\\ddswoosh\\embedded-web-socket\\Server\\Server.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

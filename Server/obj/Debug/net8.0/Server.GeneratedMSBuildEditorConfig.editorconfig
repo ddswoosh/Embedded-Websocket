@@ -9,75 +9,75 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Server
 build_property.RootNamespace = Server
-build_property.ProjectDir = C:\Users\ddswoosh\embedded-web-socket\Server\
+build_property.ProjectDir = c:\Users\ddswoosh\embedded-web-socket\Server\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\ddswoosh\embedded-web-socket\Server
+build_property.MSBuildProjectDirectory = c:\Users\ddswoosh\embedded-web-socket\Server
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/ddswoosh/embedded-web-socket/Server/Views/Account/Manage.cshtml]
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Account/Manage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxNYW5hZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ddswoosh/embedded-web-socket/Server/Views/Home/Index.cshtml]
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/Pin1.cshtml]
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/Pin1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxQaW4xLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin2.cshtml]
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxwaW4yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin3.cshtml]
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin3.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxwaW4zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin4.cshtml]
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin4.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxwaW40LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin5.cshtml]
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin5.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxwaW41LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin6.cshtml]
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin6.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxwaW42LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin7.cshtml]
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin7.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxwaW43LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin8.cshtml]
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin8.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxwaW44LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/Select.cshtml]
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/Select.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxTZWxlY3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ddswoosh/embedded-web-socket/Server/Views/Shared/Error.cshtml]
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ddswoosh/embedded-web-socket/Server/Views/Shared/_Layout.cshtml]
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ddswoosh/embedded-web-socket/Server/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ddswoosh/embedded-web-socket/Server/Views/_ViewImports.cshtml]
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ddswoosh/embedded-web-socket/Server/Views/_ViewStart.cshtml]
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
