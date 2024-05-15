@@ -1,33 +1,37 @@
 @{
+
     ViewData["Title"] = "Select";
-    string pin = null;
 }
 
 <div class="text-center">
-    <h1 class="display-4">Please select a pin to view realtime data</h1>
+    <h1 class="display-4" id="binaryTitle">View Realtime Binary Pin Data</h1>
     <body>
-        <label for="pinList">Choose a pin to view</label>
-        <select name="pinList" id ="pinList">
-            <option value = "Pin1">Pin 1</option>
-            <option value = "Pin2">Pin 2</option>
-            <option value = "Pin3">Pin 3</option>
-            <option value = "Pin4">Pin 4</option>
-            <option value = "Pin5">Pin 5</option>
-            <option value = "Pin6">Pin 6</option>
-            <option value = "Pin7">Pin 7</option>
-            <option value = "Pin7">Pin 7</option>
-        </select>
-        <button class="buttonSelect" onclick="@(pin = buttonSelectClick())">Select</button>
-        @{
-            string buttonSelectClick()
-            {   
-                pin = "test";
-                Console.WriteLine(pin);
-                return pin;
+        <h6>Choose a pin to view</h6>
+        <div class="text-center" id="pinDiv">
+            <select name="pinList", id="pinList">
+                <option value="Pin1">Pin 1</option>
+                <option value="Pin2">Pin 2</option>
+                <option value="Pin3">Pin 3</option>
+                <option value="Pin4">Pin 4</option>
+                <option value="Pin5">Pin 5</option>
+                <option value="Pin6">Pin 6</option>
+                <option value="Pin7">Pin 7</option>
+                <option value="Pin8">Pin 8</option>
+            </select>
+            <button class="buttonSelect" onclick="redirect()">Go</button>
+        </div>
+        <script>
+            function redirect() {
+                let pin = document.getElementById('pinList').value;
+                // await post request 
+                @{
+                    string curPin = pinArr.arr[0];
+                    Console.WriteLine(curPin);
+                }
+                @* document.getElementById('livePin').click();    *@
             }
-
-            
-        } 
-        <a class="nav-link text-light" asp-area="" asp-controller="Live" asp-action="@pin"></a>
+    
+        </script> 
+         <a id="livePin" asp-area="" asp-controller="Live" asp-action="@curPin"></a>
     </body>
 </div>
