@@ -83,3 +83,47 @@ header {
 #binaryTitle {
   margin-top: 30px;
 }
+
+#indexDiv {
+  margin-top: 30px;
+}
+
+#accDiv {
+  margin-top: 30px;
+}
+
+#pinList1 {
+  margin-top: 5px;
+  margin-right: 75px;
+}
+
+#pinList2 {
+  margin-top: 3px;
+  margin-left: 75px;
+}
+
+#liveButton {
+  margin-top: 10px;
+  margin-right: 75px;
+}
+
+#historyButton {
+  margin-top: 10px;
+  margin-left: 75px;
+}
+
+#header {
+  margin-top: 15px;
+}
+
+#underHeader {
+  margin-top: 50px;
+}
+
+#pinList1Title {
+  margin-left: 18px;
+}
+
+#pinList2Title {
+  margin-left: 125px;
+}

@@ -1,6 +1,10 @@
+using Server.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<PinLive>();
+builder.Services.AddSingleton<PinHistory>();
 
 var app = builder.Build();
 

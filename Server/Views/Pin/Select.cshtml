@@ -1,0 +1,57 @@
+@{
+    ViewData["Title"] = "Select";
+}
+
+<div class="text-center">
+    <h1 class="display-4" id="binaryTitle">View Binary Pin Data</h1>
+    <body>
+        <h5 id="header">Choose a pin to view</h5>
+        <div id="underHeader">
+            <h7 id="pinList1Title">Live Data</h7>
+            <h7 id="pinList2Title">Historical Data</h7>
+        </div>
+        <div class="text-center" id="pinDiv">
+            <select name="pinList", id="pinList1">
+                <option value="LivePin1">Pin 1</option>
+                <option value="LivePin2">Pin 2</option>
+                <option value="LivePin3">Pin 3</option>
+                <option value="LivePin4">Pin 4</option>
+                <option value="LivePin5">Pin 5</option>
+                <option value="LivePin6">Pin 6</option>
+                <option value="LivePin7">Pin 7</option>
+                <option value="LivePin8">Pin 8</option>
+            </select>
+            <select name="pinList", id="pinList2">
+                <option value="HistoricalPin1">Pin 1</option>
+                <option value="HistoricalPin2">Pin 2</option>
+                <option value="HistoricalPin3">Pin 3</option>
+                <option value="HistoricalPin4">Pin 4</option>
+                <option value="HistoricalPin5">Pin 5</option>
+                <option value="HistoricalPin6">Pin 6</option>
+                <option value="HistoricalPin7">Pin 7</option>
+                <option value="HistoricalPin8">Pin 8</option>
+            </select>
+            <div>
+                <button class="buttonSelect" id="liveButton" onclick="LiveRedirect()">Go</button>
+                <button class="buttonSelect" id="historyButton" onclick="HistoryRedirect()">Go</button>
+            </div>
+        </div>
+        <script>
+            function LiveRedirect() {
+                let pin = document.getElementById('pinList1').value;
+                fetch(`http://localhost:5203/api/pins/${pin}` , {
+                    method: "POST"
+                });
+                document.getElementById('livePin').click();   
+            }
+            function HistoryRedirect() {
+                let pin = document.getElementById('pinList2').value;
+                fetch(`http://localhost:5203/api/pins/${pin}` , {
+                    method: "POST"
+                });
+                document.getElementById('livePin').click();   
+            }
+        </script> 
+         <a id="livePin" asp-area="" asp-controller="Pin" asp-action="GetPin"></a>
+    </body>
+</div>

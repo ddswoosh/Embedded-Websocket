@@ -1,14 +1,37 @@
 namespace Server.Models;
 
-public class CurrentPin
+public interface PinInterface
 {
-    public string[] arr = {"null"};
+    void PutCurrentPin(string id);
+    string GetCurrentPin();
+}
 
-    public string PutCurrentPin(string id)
+public class PinLive : PinInterface
+{
+    public string pin = "/";
+
+    public void PutCurrentPin(string id)
     {   
-        Console.WriteLine(id);
-        arr[0] = id; 
-        return arr[0];
+        pin = id;
     }
 
+    public string GetCurrentPin()
+    {
+        return pin;
+    }
+}
+
+public class PinHistory : PinInterface
+{
+    public string pin = "/";
+
+    public void PutCurrentPin(string id)
+    {   
+        pin = id;
+    }
+
+    public string GetCurrentPin()
+    {
+        return pin;
+    }
 }

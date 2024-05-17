@@ -26,40 +26,72 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/Pin1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxQaW4xLmNzaHRtbA==
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/HistoricalPin1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXEhpc3RvcmljYWxQaW4xLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin2.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxwaW4yLmNzaHRtbA==
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/HistoricalPin2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXEhpc3RvcmljYWxQaW4yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin3.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxwaW4zLmNzaHRtbA==
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/HistoricalPin3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXEhpc3RvcmljYWxQaW4zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin4.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxwaW40LmNzaHRtbA==
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/HistoricalPin4.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXEhpc3RvcmljYWxQaW40LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin5.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxwaW41LmNzaHRtbA==
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/HistoricalPin5.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXEhpc3RvcmljYWxQaW41LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin6.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxwaW42LmNzaHRtbA==
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/HistoricalPin6.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXEhpc3RvcmljYWxQaW42LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin7.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxwaW43LmNzaHRtbA==
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/HistoricalPin7.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXEhpc3RvcmljYWxQaW43LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/pin8.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxwaW44LmNzaHRtbA==
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/HistoricalPin8.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXEhpc3RvcmljYWxQaW44LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Live/Select.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGl2ZVxTZWxlY3QuY3NodG1s
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/LivePin1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXExpdmVQaW4xLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/Livepin2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXExpdmVwaW4yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/Livepin3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXExpdmVwaW4zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/Livepin4.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXExpdmVwaW40LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/Livepin5.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXExpdmVwaW41LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/Livepin6.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXExpdmVwaW42LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/Livepin7.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXExpdmVwaW43LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/Livepin8.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXExpdmVwaW44LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Pin/Select.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGluXFNlbGVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/ddswoosh/embedded-web-socket/Server/Views/Shared/Error.cshtml]
