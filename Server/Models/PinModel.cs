@@ -20,18 +20,3 @@ public class PinLive : PinInterface
         return pin;
     }
 }
-
-public class PinHistory : PinInterface
-{
-    public string pin = "/";
-
-    public void PutCurrentPin(string id)
-    {   
-        pin = id;
-    }
-
-    public string GetCurrentPin()
-    {
-        return pin;
-    }
-}

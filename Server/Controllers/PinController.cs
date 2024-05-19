@@ -5,7 +5,7 @@ namespace Server.Controllers;
 
 public class PinController : Controller
 {
-    private readonly PinLive _curPin;
+    private PinLive _curPin;
 
     public PinController(PinLive curPin)
     {

@@ -18,8 +18,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = c:\Users\ddswoosh\embedded-web-socket\Server
 build_property._RazorSourceGeneratorDebug = 
 
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [c:/Users/ddswoosh/embedded-web-socket/Server/Views/Account/Manage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxNYW5hZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/ddswoosh/embedded-web-socket/Server/Views/Home/Index.cshtml]
@@ -96,6 +104,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [c:/Users/ddswoosh/embedded-web-socket/Server/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/ddswoosh/embedded-web-socket/Server/Views/Shared/NotAuth.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5vdEF1dGguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/ddswoosh/embedded-web-socket/Server/Views/Shared/_Layout.cshtml]

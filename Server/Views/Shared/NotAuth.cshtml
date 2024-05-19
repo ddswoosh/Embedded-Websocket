@@ -1,0 +1,13 @@
+@{
+    ViewData["Title"] = "Not Auth";
+}
+
+<div class="text-center" id="accDiv">
+    <h1 class="display-4">Authorization Failed</h1>
+    <p>You are not authroized to view this page, please login or register for access.</p>
+    <div>
+        <a class="Login" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+        <a class="Register" asp-area="" asp-controller="Account" asp-action="Register">Register</a>  
+    </div>
+
+</div>

@@ -4,7 +4,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<PinLive>();
-builder.Services.AddSingleton<PinHistory>();
+builder.Services.AddScoped<User>();
+builder.Services.AddAuthorization();
+
 
 var app = builder.Build();
 
