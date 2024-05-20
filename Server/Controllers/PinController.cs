@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Server.Models;
 
 namespace Server.Controllers;
 
+[Authorize(Policy = "DbAuth")]
 public class PinController : Controller
 {
     private PinLive _curPin;
