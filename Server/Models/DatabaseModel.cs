@@ -8,7 +8,7 @@ namespace Server.Models;
 
 public class User 
 {
-    public string Username {get; set;}
+    public string Username {get; set;} = "Null";
     public string Password {get; set;}
     public string Type {get; set;}
     public string? API {get; set;}
@@ -28,7 +28,7 @@ public class DbConnect
         await conn.OpenAsync();
 
         await using var query = new SqlCommand(
-            "SELECT * FROM auth WHERE Usernme = ${username} AND Password = ${Password}",
+            "SELECT * FROM auth WHERE (Username = 'admin' AND Password = 'initroot1234')",
             conn);
 
         await using var res = await query.ExecuteReaderAsync();
@@ -37,10 +37,12 @@ public class DbConnect
         {
            if (res["Username"] != null && res["Password"] != null)
            {
+                Console.WriteLine(res["Username"].ToString());
                 _user.Username = res["Username"].ToString();
                 _user.Password = res["Password"].ToString();
                 _user.Type = res["Type"].ToString();
                 _user.API = res["API"].ToString();
+                break;
            }   
         }
     }

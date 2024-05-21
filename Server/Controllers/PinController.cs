@@ -4,7 +4,7 @@ using Server.Models;
 
 namespace Server.Controllers;
 
-[Authorize(Policy = "DbAuth")]
+
 public class PinController : Controller
 {
     private PinLive _curPin;

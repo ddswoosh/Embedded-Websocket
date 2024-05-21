@@ -5,7 +5,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<PinLive>();
 builder.Services.AddSingleton<User>();
-builder.Services.AddSingleton<DbConnect>();
 builder.Services.AddAuthorization();
 
 

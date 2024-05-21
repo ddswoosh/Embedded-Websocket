@@ -10,10 +10,8 @@ namespace Server.Controllers;
 public class AccountController : Controller
 {
     private User _user;
-    private DbConnect _db;
-    public AccountController(User user, DbConnect db)
+    public AccountController(User user)
     {
-        _db = db;
         _user = user;
     }
 
