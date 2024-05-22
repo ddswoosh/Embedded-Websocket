@@ -17,7 +17,7 @@ public class AccountController : Controller
 
     public IActionResult Manage()
     {
-        if (_user.Auth == 1)
+        
         {
             return View();   
         }
@@ -28,7 +28,7 @@ public class AccountController : Controller
     [AllowAnonymous]
     public IActionResult Register()
     {
-        if (_user.Auth == 1)
+        
         {
             return View("Manage");
         }
@@ -39,7 +39,7 @@ public class AccountController : Controller
     [AllowAnonymous]
     public IActionResult Login()
     {
-        if (_user.Auth == 1)
+        
         {
             return View("Manage");
         }

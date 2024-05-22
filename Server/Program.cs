@@ -1,9 +1,10 @@
+using Microsoft.AspNetCore.Identity;
 using Server.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<PinLive>();
+builder.Services.AddSingleton<PinInterface, PinLive>();
 builder.Services.AddSingleton<User>();
 builder.Services.AddAuthorization();
 

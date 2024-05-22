@@ -1,7 +1,5 @@
-using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing.Internal;
 using Server.Models;
 
 namespace Server.Controllers;
@@ -9,24 +7,21 @@ namespace Server.Controllers;
 [AllowAnonymous]
 public class HomeController : Controller
 {
-    private User _user;
-    public HomeController(User user){
-        _user = user;
-    }   
     public IActionResult Index()
     {
         return View();
  
     }
 
-    public IActionResult Privacy()
+    public async Task<User> Privacy()
     {   
-        DbConnect db = new DbConnect(_user);
-        db.GetUser( "admin", "initroot1234");
+        DbConnect db = new DbConnect();
+        Task<User> asyncUser = db.GetUser( "admin", "initroot1234");
+        User user = await asyncUser;
 
-        // Console.WriteLine(_user.Username);
+        return user;
 
-        return View();
+       
     }
 }
 

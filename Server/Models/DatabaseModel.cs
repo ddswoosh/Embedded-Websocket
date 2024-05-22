@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Drawing;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
@@ -8,43 +9,39 @@ namespace Server.Models;
 
 public class User 
 {
-    public string Username {get; set;} = "Null";
+    public string Username {get; set;}
     public string Password {get; set;}
     public string Type {get; set;}
-    public string? API {get; set;}
-    public int Auth = 0;
+    public string API {get; set;}
 }
 
 public class DbConnect
 {
-    public User _user;
-    public DbConnect(User user)
+    private User user;
+    public async Task<User?> GetUser(string username, string password)
     {
-        _user = user;
-    }
-    public async void GetUser(string username, string password)
-    {
-        await using var conn = new SqlConnection(@"Server=PC\SQLEXPRESS;Database=Embedded;Trusted_Connection=True;TrustServerCertificate=True");
+        var conn = new SqlConnection(@"Server=PC\SQLEXPRESS;Database=Embedded;Trusted_Connection=True;TrustServerCertificate=True");
         await conn.OpenAsync();
 
-        await using var query = new SqlCommand(
-            "SELECT * FROM auth WHERE (Username = 'admin' AND Password = 'initroot1234')",
+        var query = new SqlCommand(
+            $"SELECT * FROM auth WHERE (Username = 'admin' AND Password = 'initroot1234')",
             conn);
 
-        await using var res = await query.ExecuteReaderAsync();
+        var res = await query.ExecuteReaderAsync();
     
         while (await res.ReadAsync()) 
         {
            if (res["Username"] != null && res["Password"] != null)
-           {
-                Console.WriteLine(res["Username"].ToString());
-                _user.Username = res["Username"].ToString();
-                _user.Password = res["Password"].ToString();
-                _user.Type = res["Type"].ToString();
-                _user.API = res["API"].ToString();
-                break;
+           {    
+                user.Username = res["Username"].ToString();
+                user.Password = res["Password"].ToString();
+                user.Type = res["Type"].ToString();
+                user.API = res["API"].ToString();
+                
+                return user;
            }   
         }
+        return null;
     }
 
     public async void PutUser(string username, string password, string type, int API)
@@ -52,15 +49,16 @@ public class DbConnect
         await using var conn = new SqlConnection(@"Server=PC\SQLEXPRESS;Database=Embedded;Trusted_Connection=True;TrustServerCertificate=True");
         await conn.OpenAsync();
 
-        await using var query = new SqlCommand(
-            "INSERT INTO auth (Username, Password, Type, API) VALUES (${username}, ${password}, ${type}, ${API})", 
+        var query = new SqlCommand(
+            $"INSERT INTO auth (Username, Password, Type, API) VALUES ({username}, ${password}, ${type}, ${API})", 
             conn);
 
-        await using var res = await query.ExecuteReaderAsync();
-    
-        while (await res.ReadAsync()) 
-        {
-            Console.WriteLine(res.ToString());
+        try {
+            await query.ExecuteReaderAsync(); 
+        } catch {
+            Console.WriteLine("Query post error");
         }
+    
+        
     }
 }

@@ -4,12 +4,11 @@ using Server.Models;
 
 namespace Server.Controllers;
 
-
 public class PinController : Controller
 {
-    private PinLive _curPin;
+    private PinInterface _curPin;
 
-    public PinController(PinLive curPin)
+    public PinController(PinInterface curPin)
     {
         _curPin = curPin;
     }
