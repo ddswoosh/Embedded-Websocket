@@ -6,7 +6,7 @@ using Server.Models;
 
 namespace Server.Controllers;
 
-[Authorize(Policy = "DbAuth")]
+[Authorize(Policy = "Auth")]
 public class AccountController : Controller
 {
     private User _user;
@@ -17,34 +17,19 @@ public class AccountController : Controller
 
     public IActionResult Manage()
     {
-        
-        {
-            return View();   
-        }
-
-        return View("NotAuth");
+        return View();   
     }
     
     [AllowAnonymous]
     public IActionResult Register()
     {
-        
-        {
-            return View("Manage");
-        }
-
-        return View();   
+        return View("Manage");
     }
 
     [AllowAnonymous]
     public IActionResult Login()
     {
-        
-        {
-            return View("Manage");
-        }
-
-        return View();   
+        return View("Manage");
     }
 
     [AllowAnonymous]

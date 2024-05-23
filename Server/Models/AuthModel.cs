@@ -1,24 +1,20 @@
-using Server.Controllers;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace Server.Models;
 
-public class Authorization {
-    
-    public User _user;
-    public Authorization(User user) {
-        _user = user;
-    }
-
-    public int checkLevel() {
-        switch (_user.Type) {
-            case "user":
-                return 1;
-            case "administrator":
-                return 2;
-            case "microcontroller":
-                return 3;
+public class Authorization : IAuthorizationRequirement
+{
+    public int Level {get;}
+    public Authorization(string? type) {
+        if (type == "user") {
+            Level = 1;
+        } else if (type == "administrator") {
+            Level = 2;
+        } else if (type == "chip") {
+            Level = 3;
+        } else {
+            Level = 0;
         }
-
-        return 0;
-    }
+    }   
 }

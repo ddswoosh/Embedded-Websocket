@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UF+DNzqV/B8Wk5A6s4E4x8lZ6N2haCMjiugEfztiC+aN0Gk8SWDSYY5qgHNTMCspilgFr0Jzp3N4j/8ADeP8Dg==",
+  "dgSpecHash": "PAPX2/ESL72NHVFQb/bQz2j7W2WGYjD1ClUhKd/Q9ebYEA5CLUbkF0Oh1gmq9ucN/ySc1yGcNDPlMRUBvGLa3g==",
   "success": true,
-  "projectFilePath": "c:\\Users\\ddswoosh\\embedded-web-socket\\Server\\Server.csproj",
+  "projectFilePath": "C:\\Users\\ddswoosh\\embedded-web-socket\\Server\\Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ddswoosh\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\ddswoosh\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
