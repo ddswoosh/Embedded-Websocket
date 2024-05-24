@@ -6,7 +6,7 @@ using Server.Models;
 
 namespace Server.Controllers;
 
-[Authorize(Policy = "Auth")]
+// [Authorize(Policy = "Auth")]
 public class AccountController : Controller
 {
     private User _user;
@@ -23,13 +23,13 @@ public class AccountController : Controller
     [AllowAnonymous]
     public IActionResult Register()
     {
-        return View("Manage");
+        return View();
     }
 
     [AllowAnonymous]
     public IActionResult Login()
     {
-        return View("Manage");
+        return View();
     }
 
     [AllowAnonymous]

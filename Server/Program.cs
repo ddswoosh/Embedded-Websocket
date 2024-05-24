@@ -7,10 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<PinInterface, PinLive>();
 builder.Services.AddSingleton<User>();
-builder.Services.AddSingleton<Authorization>();
-builder.Services.AddAuthorization(options => {
-    options.AddPolicy("Auth", policy => policy.Requirements.Add(new Authorization(null)));
-});
+// builder.Services.AddSingleton<Authorization>();
+// builder.Services.AddAuthorization(options => {
+//     options.AddPolicy("Auth", policy => policy.Requirements.Add(new Authorization(null)));
+// });
 
 
 var app = builder.Build();

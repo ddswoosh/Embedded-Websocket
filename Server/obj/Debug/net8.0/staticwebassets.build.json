@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9vmSHYPCprTPV7V1f1yrTkPp2LkXFSjCQC4G5iyJ+Q8=",
+  "Hash": "4+soDCI81bgObORbeAaNga6cFPpxxiU1+CQStrihPww=",
   "Source": "Server",
   "BasePath": "_content/Server",
   "Mode": "Default",
@@ -34,25 +34,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
-    },
-    {
-      "Identity": "c:\\Users\\ddswoosh\\embedded-web-socket\\Server\\wwwroot\\favicon.ico",
-      "SourceId": "Server",
-      "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\ddswoosh\\embedded-web-socket\\Server\\wwwroot\\",
-      "BasePath": "_content/Server",
-      "RelativePath": "favicon.ico",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
       "Identity": "c:\\Users\\ddswoosh\\embedded-web-socket\\Server\\wwwroot\\js\\site.js",

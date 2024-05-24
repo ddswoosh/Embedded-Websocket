@@ -1,5 +1,7 @@
 html {
+
   font-size: 14px;
+
 }
 
 @media (min-width: 768px) {
@@ -80,6 +82,9 @@ header {
   vertical-align: middle;
 }
 
+#header {
+  margin-top: 50px;
+}
 
 #binaryTitle {
   margin-top: 30px;
@@ -113,12 +118,12 @@ header {
   margin-left: 75px;
 }
 
-#header {
-  margin-top: 15px;
+#pinHeader {
+  margin-top: 50px;
 }
 
-#underHeader {
-  margin-top: 50px;
+#underPinHeader {
+  margin-top: 15px;
 }
 
 #pinList1Title {
@@ -127,6 +132,51 @@ header {
 
 #pinList2Title {
   margin-left: 125px;
+}
+
+#logDiv {
+  margin-top: 35px;
+}
+
+#regDiv {
+  margin-top: 35px;
+}
+
+#password {
+  margin-top: 5px;
+}
+
+#logButton {
+  margin-left: 20px;
+}
+
+#logView {
+  margin-top: 12px;
+}
+
+#logButton {
+  margin-right: 85px;
+}
+
+#regButton {
+  margin-left: 2px;
+}
+
+#submitButton {
+  margin-top: 10px;
+}
+
+#type {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+input[type="text"]::placeholder {
+  text-align: center;
+}
+
+input[type="text"] {
+  text-align: center;
 }
 
 .Login {
@@ -158,7 +208,6 @@ header {
   vertical-align: middle;
 }
 
-
 .Register {
   align-items: center;
   background-color: #0a0dc2;
@@ -177,13 +226,4 @@ header {
   min-height: 28px;
   min-width: 0px;
   overflow: hidden;
-  padding: 0px;
-  padding-left: 20px;
-  padding-right: 20px;
-  text-align: center;
-  touch-action: manipulation;
-  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: middle;
 }

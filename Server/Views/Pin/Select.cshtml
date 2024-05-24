@@ -3,7 +3,7 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4" id="binaryTitle">View Binary Pin Data</h1>
+    <h1 class="display-4" id="binaryTitle">Binary Pin Data</h1>
     <body>
         <h5 id="header">Choose a pin to view</h5>
         <div id="underHeader">
@@ -44,6 +44,7 @@
                 });
                 document.getElementById('livePin').click();   
             }
+            
             function HistoryRedirect() {
                 let pin = document.getElementById('pinList2').value;
                 fetch(`http://localhost:5203/api/pins/${pin}` , {
@@ -52,6 +53,6 @@
                 document.getElementById('livePin').click();   
             }
         </script> 
-         <a id="livePin" asp-area="" asp-controller="Pin" asp-action="GetPin"></a>
+        <a id="livePin" asp-area="" asp-controller="Pin" asp-action="GetPin"></a>
     </body>
 </div>

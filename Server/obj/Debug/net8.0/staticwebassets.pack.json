@@ -5,10 +5,6 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "c:\\Users\\ddswoosh\\embedded-web-socket\\Server\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
-    },
-    {
       "Id": "c:\\Users\\ddswoosh\\embedded-web-socket\\Server\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

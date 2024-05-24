@@ -1,10 +1,24 @@
 @{
     ViewData["Title"] = "Login";
 }
-
-<div class="text-center" id="accDiv">
+<div class="text-center">
     <h1 class="display-4">Login</h1>
-    <input type="text" id="username" placeholder="Username">
-
-    <p>null</p>
 </div>
+<div class="text-center" id="logDiv">
+    <input type="text" id="username" placeholder="Username">
+    <div>
+        <input type="text" id="password" placeholder="Password">
+    </div>
+    <div id="logView">
+        <label for="regButton"><u id="newUser">New User?</u></label>
+        <button class="buttonSelect" id="regButton" onclick="RegisterRedirect()">Register</button>
+        <button class="buttonSelect" id="logButton">Login</button>
+        <script>
+            function RegisterRedirect() {
+                document.getElementById('registerButton').click();   
+            }
+        </script>
+        <a id="registerButton" asp-area="" asp-controller="Account" asp-action="Register"></a>
+    </div>
+</div>
+

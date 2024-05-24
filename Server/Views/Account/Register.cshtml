@@ -1,8 +1,28 @@
 @{
     ViewData["Title"] = "Register";
 }
-
-<div class="text-center" id="accDiv">
-    <h1 class="display-4">Register</h1>
-    <p>null</p>
+<div class="text-center">
+    <h1 class="display-4">Register Your Account</h1>
+</div>
+<div class="text-center" id="regDiv">
+    <input type="text" id="username" placeholder="Username">
+    <div>
+        <input type="text" id="password" placeholder="Password">
+    </div>
+        <input type="text" id="type" placeholder="User" disabled>
+    <div>
+        <input type="text" id="api" placeholder="Generate API Key"> <button onclick="GenerateApi()"><img src="Server/Assets/refresh.ico"></button>
+        <script>
+            function GenerateApi() {
+                api_array = []; 
+                for (int i = 0; i < 16; i++) {
+                    api_array.push(Math.random(range(0,10000)));
+                }
+                console.log(api_array);
+            }
+        </script>
+    </div>
+    <div id="regView">
+        <button class="buttonSelect" id="submitButton">Submit</button>
+    </div>
 </div>

@@ -58,7 +58,5 @@ public class DbConnect
         } catch {
             Console.WriteLine("Query post error");
         }
-    
-        
     }
 }
