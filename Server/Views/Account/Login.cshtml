@@ -12,13 +12,32 @@
     <div id="logView">
         <label for="regButton"><u id="newUser">New User?</u></label>
         <button class="buttonSelect" id="regButton" onclick="RegisterRedirect()">Register</button>
-        <button class="buttonSelect" id="logButton">Login</button>
+        <button class="buttonSelect" id="logButton" onclick="TryLogin()">Login</button>
         <script>
+
             function RegisterRedirect() {
                 document.getElementById('registerButton').click();   
             }
+
+            function TryLogin() {
+                let username = document.getElementById('username').value;
+                let password = document.getElementById('password').value;
+
+                let res = fetch(`localhost:5203/Account/TryLogin`, {
+                    method: "POST",
+                    body: JSON.stringify({
+                        "username":username,"password":password
+                    })
+                });
+
+                if (!res) {
+                    document.getElementById('login').click();
+                }
+            }
+
         </script>
         <a id="registerButton" asp-area="" asp-controller="Account" asp-action="Register"></a>
+        <a id="login" asp-area="" asp-controller="Account" asp-action="Manage"></a>
     </div>
 </div>
 

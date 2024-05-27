@@ -37,6 +37,7 @@
             </div>
         </div>
         <script>
+
             function LiveRedirect() {
                 let pin = document.getElementById('pinList1').value;
                 fetch(`http://localhost:5203/api/pins/${pin}` , {
@@ -52,6 +53,7 @@
                 });
                 document.getElementById('livePin').click();   
             }
+            
         </script> 
         <a id="livePin" asp-area="" asp-controller="Pin" asp-action="GetPin"></a>
     </body>

@@ -11,18 +11,45 @@
     </div>
         <input type="text" id="type" placeholder="User" disabled>
     <div>
-        <input type="text" id="api" placeholder="Generate API Key"> <button onclick="GenerateApi()"><img src="Server/Assets/refresh.ico"></button>
+        <input type="text" id="api" placeholder="Generate API Key"> <button class="buttonSelect" id="genButton" onclick="GenerateApi()">Gen</button>
         <script>
-            function GenerateApi() {
-                api_array = []; 
-                for (int i = 0; i < 16; i++) {
-                    api_array.push(Math.random(range(0,10000)));
-                }
-                console.log(api_array);
+
+            function Range(lo, hi) {
+                return Math.random() * (hi - lo) + lo;
             }
+
+            function GenerateApi() {
+                char_arr = [
+                    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
+                    "q", "r", "s", "t", "u", "v", "w", "y", "z", "1", "2", "3", "4", "5", "6", "7",
+                    "8", "9"
+                ];
+                api = ""; 
+
+                for (i = 0; i < 20; i++) {
+                    api += (char_arr[Math.floor(Range(0,34))]);
+                };
+
+                document.getElementById('api').value = api;
+            }
+
+            function PutUser() {
+                let username = document.getElementById('username').value;
+                let pass = document.getElementById('password').value;
+                let type = "user";
+                let api = document.getElementById('api').value;
+                
+                fetch(`localhost:5203/Account/TryRegister`, {
+                    method: "POST",
+                    body: JSON.stringify({
+                        "username":username,"password":password,"type":"user","api":api
+                    })
+                });
+            }
+
         </script>
     </div>
     <div id="regView">
-        <button class="buttonSelect" id="submitButton">Submit</button>
+        <button class="buttonSelect" id="submitButton" onclick="PutUser()">Submit</button>
     </div>
 </div>
