@@ -59,9 +59,13 @@ public class AccountController : Controller
             user[i] = temp.Value;
             i++;
         }
+        
+        user[0] = user[0][1..(user[0].Length-1)];
+        user[1] = user[1][1..(user[1].Length-1)];
         var res = db.GetUser(user[0], user[1]);
+        User test= res.Result;
 
-        return res.Result;
+        return test.Username;
             // await send user info back to front end
         
         

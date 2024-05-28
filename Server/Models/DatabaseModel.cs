@@ -1,4 +1,6 @@
+using System.Data;
 using System.Drawing;
+using System.Reflection.Metadata;
 using System.Reflection.Metadata.Ecma335;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Data.SqlClient;
@@ -16,24 +18,34 @@ public class User
 public class DbConnect
 {
     private User user;
-    public async Task<string> GetUser(string username, string password)
+    public async Task<User?> GetUser(string username, string password)
     {
         await using var conn = new SqlConnection(@"Server=PC\SQLEXPRESS;Database=Embedded;Trusted_Connection=True;TrustServerCertificate=True");
         await conn.OpenAsync();
-
+  
         var query = new SqlCommand(
             $"SELECT * FROM auth WHERE Username = '{username}' AND Password = '{password}'",
             conn);
  
         var res = await query.ExecuteReaderAsync();
-        
-        if (res.ReadAsync().Result == true)
+          
+        try 
         {
-            return "found";
+            while (res.ReadAsync() != null) 
+            {   
+                user.Username = res.GetString(0);
+                user.Password = res.GetString(1);
+                user.Type = res.GetString(2);
+                user.API = res.GetString(3);
+                return user;
+            }
         }
-       
-        
-        return "not";
+         catch (Exception)
+        {
+            return null;
+        }
+
+        return null;
     }
 
     public async Task<string> PutUser(string username, string password, string type, string API)
@@ -49,7 +61,7 @@ public class DbConnect
         {
             var res = await query.ExecuteReaderAsync();
             
-            return res.ToString();
+            return "Account created";
         } 
         catch (SqlException) 
         {
