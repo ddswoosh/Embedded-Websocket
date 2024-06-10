@@ -1,9 +1,5 @@
-using System.Data;
-using System.Drawing;
-using System.Reflection.Metadata;
-using System.Reflection.Metadata.Ecma335;
-using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Data.SqlClient;
+using Dapper;
 
 namespace Server.Models;
 

@@ -66,7 +66,12 @@ public class AccountController : Controller
         User test= res.Result;
 
         return test.Username;
-            // await send user info back to front end
+        // Success
+        //  - render acc manage view
+        //  - cache jwt client side
+
+        // Failure
+        //  - pop up Invalid credentials 
         
         
     

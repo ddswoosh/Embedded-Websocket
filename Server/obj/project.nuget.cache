@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "UF+DNzqV/B8Wk5A6s4E4x8lZ6N2haCMjiugEfztiC+aN0Gk8SWDSYY5qgHNTMCspilgFr0Jzp3N4j/8ADeP8Dg==",
+  "dgSpecHash": "4+bxJq0GKK7d7qwFeChRTAgcypSS55O9Ron6AQZ2jgTuspZIvJtj0UgJFFNUtUAIpqQ/wZo9UU1aUxDUo8USjg==",
   "success": true,
   "projectFilePath": "c:\\Users\\ddswoosh\\embedded-web-socket\\Server\\Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ddswoosh\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\ddswoosh\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\ddswoosh\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\ddswoosh\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\ddswoosh\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\ddswoosh\\.nuget\\packages\\microsoft.data.sqlclient\\5.2.0\\microsoft.data.sqlclient.5.2.0.nupkg.sha512",
