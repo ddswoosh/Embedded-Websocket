@@ -1,19 +1,12 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.ObjectPool;
-using Microsoft.VisualBasic;
 using Server.Models;
 
 namespace Server.Controllers;
 
-// [Authorize(Policy = "Auth")]
+// [Authorize(Policy = "ValidateToken")]
 public class AccountController : Controller
 {
-    private User _user;
-    public AccountController(User user)
-    {
-        _user = user;
-    }
 
     public IActionResult Manage()
     {

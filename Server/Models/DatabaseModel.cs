@@ -1,18 +1,12 @@
 using Microsoft.Data.SqlClient;
-using Dapper;
+using Microsoft.EntityFrameworkCore;
+using Server.Models;
 
 namespace Server.Models;
 
-public class User 
+public class DbConnect : DbContext
 {
-    public string Username {get; set;}
-    public string Password {get; set;}
-    public string Type {get; set;}
-    public string API {get; set;}
-}
-
-public class DbConnect
-{
+  
     private User user;
     public async Task<User?> GetUser(string username, string password)
     {
