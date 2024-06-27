@@ -1,61 +1,42 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Server.Models;
 
 namespace Server.Models;
 
-public class DbConnect : DbContext
-{
-  
-    private User user;
-    public async Task<User?> GetUser(string username, string password)
+public class UserContext : DbContext
+{   
+    private ID _id;
+    private DbContextOptions<UserContext> _options;
+    public UserContext(DbContextOptions<UserContext> options, ID Id) : base(options)
     {
-        await using var conn = new SqlConnection(@"Server=PC\SQLEXPRESS;Database=Embedded;Trusted_Connection=True;TrustServerCertificate=True");
-        await conn.OpenAsync();
-  
-        var query = new SqlCommand(
-            $"SELECT * FROM auth WHERE Username = '{username}' AND Password = '{password}'",
-            conn);
- 
-        var res = await query.ExecuteReaderAsync();
-          
-        try 
-        {
-            while (res.ReadAsync() != null) 
-            {   
-                user.Username = res.GetString(0);
-                user.Password = res.GetString(1);
-                user.Type = res.GetString(2);
-                user.API = res.GetString(3);
-                return user;
-            }
-        }
-         catch (Exception)
-        {
-            return null;
-        }
-
-        return null;
+        _id = Id;
+        _options = options;
     }
 
-    public async Task<string> PutUser(string username, string password, string type, string API)
+    public DbSet<User> Users {get; set;}
+
+    public void Set(string username, string password, string type, string api)
     {
-        await using var conn = new SqlConnection(@"Server=PC\SQLEXPRESS;Database=Embedded;Trusted_Connection=True;TrustServerCertificate=True");
-        await conn.OpenAsync();
+        using (var context = new UserContext(_options, _id))
+        {   
+            User user = new User();
+            user.id = _id.id;
+            user.Username = "testing";
+            user.Password = "testing";
+            user.Type = "user";
+            user.API = api; 
 
-        var query = new SqlCommand(
-            $"INSERT INTO auth (Username, Password, Type, API) VALUES ('{username}', '{password}', '{type}', '{API}')", 
-            conn);
-
-        try 
-        {
-            var res = await query.ExecuteReaderAsync();
-            
-            return "Account created";
-        } 
-        catch (SqlException) 
-        {
-            return "User already exists";
+            context.Users.Add(user);
         }
+        
+    }
+
+    public void get(string username, string password)
+    {
+        var query = from i in Users
+                    select i;
+
+        Console.WriteLine(query);
+        
     }
 }

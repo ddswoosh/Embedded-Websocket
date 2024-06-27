@@ -5,22 +5,14 @@ using Server.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<PinInterface, PinLive>();
+builder.Services.AddSingleton<ID>();
 
-builder.Services.AddDbContext<DbConnect>(options =>
-    options.UseSqlServer(@"Server=PC\SQLEXPRESS;Database=Embedded;Trusted_Connection=True;TrustServerCertificate=True")
+builder.Services.AddDbContext<UserContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
     );
-
-
-
-builder.Services.AddIdentity<User, IdentityRole>(options => {
-    options.Password.RequireDigit = true;
-    options.Password.RequireUppercase = true;
-    options.Password.RequireLowercase = true;
-    options.Password.RequiredLength = 8;
-});
-
 
 builder.Services.AddAuthentication("Bearer").AddJwtBearer(options => {
     options.TokenValidationParameters = new TokenValidationParameters 
