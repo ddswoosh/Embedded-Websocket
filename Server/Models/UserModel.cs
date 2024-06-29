@@ -14,8 +14,3 @@ public class User
     public string API {get; set;}
 
 }
-
-public class ID 
-{
-    public int id {get; set;}
-}
