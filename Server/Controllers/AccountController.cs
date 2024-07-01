@@ -1,20 +1,18 @@
-using System.Data.Common;
+using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Server.Models;
 
 namespace Server.Controllers;
 
 // [Authorize(Policy = "ValidateToken")]
 public class AccountController : Controller
-{ 
-    private readonly DbContextOptions<UserContext> _db;
-
-    public AccountController(DbContextOptions<UserContext> db)
+{
+    private UserContext db;
+    private JWT jwt = new JWT();
+    public AccountController(UserContext db)
     {
-        _db = db;
+        this.db = db;
     }
     public IActionResult Manage()
     {
@@ -36,7 +34,7 @@ public class AccountController : Controller
     [AllowAnonymous]
     [Route("/Account/TryLogin")]
     [HttpPost]
-    public async Task<string> TryLogin()
+    public async Task<string?> TryLogin()
     {
         StreamReader body = new StreamReader(HttpContext.Request.Body); 
         string[] user = ReadJson(body);
@@ -44,20 +42,17 @@ public class AccountController : Controller
         user[0] = user[0][1..(user[0].Length-1)];
         user[1] = user[1][1..(user[1].Length-1)];
 
-        using (var db = new UserContext(_db))
-        {  
-            if (db.Users.Where(u => u.Username == user[0]).Where(p => p.Password == user[1]).ToArray().Length == 0)
-            {   
-                return "Account not found, please try again or resiger.";
-            }
+        User[] entity = db.GetUser(user);
 
-            else
-            {
-                return "ok";
-                // create jwt and store client side
-            }
+        if (entity == null)
+        {
+            return "Account not found, please new credentials or register your account.";
+            
         }
-        return "t";
+
+        string info = jwt.CreateToken(entity);
+        return info;
+        
     }
     
     [AllowAnonymous]
@@ -74,22 +69,13 @@ public class AccountController : Controller
         entity.Type = user[2][1..(user[2].Length-1)];
         entity.API = user[3][1..(user[3].Length-1)];
 
-        using (var db = new UserContext(_db))
-        {  
-        if (db.Users.Where(u => u.Username == user[0]).Where(p => p.Password == user[1]).ToArray().Length > 0)
-        {   
+        if (db.SetUser(user, entity))
+        {
             return "Account was found with those credentials, please log in or sign up with a different username and password.";
         }
 
-        else
-        {
-            db.Users.Add(entity);
-            db.SaveChanges();
-
-            return "Account created successfully";
-        }
-        
-        }   
+        // Create JWT and return it as string, store local client storage
+        return "Account created successfully";
     }
 
     public string[] ReadJson(StreamReader body)

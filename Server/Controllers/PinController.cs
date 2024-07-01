@@ -6,11 +6,11 @@ namespace Server.Controllers;
 
 public class PinController : Controller
 {
-    private PinInterface _curPin;
+    private PinInterface curPin;
 
     public PinController(PinInterface curPin)
     {
-        _curPin = curPin;
+        this.curPin = curPin;
     }
     public IActionResult Select()
     {
@@ -28,12 +28,12 @@ public class PinController : Controller
     [Route("api/pins/{id}")]
     [HttpPost]
     public void PutPin(string id) {
-        _curPin.PutCurrentPin(id);
+        curPin.PutCurrentPin(id);
     }
     
     public IActionResult GetPin()
     {
         Thread.Sleep(500);
-        return View(_curPin.GetCurrentPin());
+        return View(curPin.GetCurrentPin());
     }
 }

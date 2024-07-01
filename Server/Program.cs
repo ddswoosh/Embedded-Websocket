@@ -2,8 +2,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
 using Server.Models;
+using Microsoft.Extensions.Options;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+var config = builder.Configuration;
 
 builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
@@ -13,13 +16,17 @@ builder.Services.AddDbContext<UserContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
     );
 
-builder.Services.AddAuthentication("Bearer").AddJwtBearer(options => {
-    options.TokenValidationParameters = new TokenValidationParameters 
+builder.Services.AddAuthentication("Bearer").AddJwtBearer(options => 
+{
+    options.TokenValidationParameters = new TokenValidationParameters
     {
+        ValidIssuer = config["JWT:ValidIssuer"],
+        ValidAudience = config["JWT:ValidAudience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:Key"])),
         ValidateIssuer = true,
         ValidateAudience = true,
-        ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
-        ValidAudience = builder.Configuration["JWT:ValidAudiences"]
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true
     };
 });
 
