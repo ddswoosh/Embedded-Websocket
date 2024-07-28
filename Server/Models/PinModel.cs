@@ -4,6 +4,7 @@ public interface PinInterface
 {
     void PutCurrentPin(string id);
     string GetCurrentPin();
+    
 }
 
 public class PinLive : PinInterface

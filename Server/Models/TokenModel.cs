@@ -39,10 +39,8 @@ public class JWT {
         return token;
     }
     public bool ValidateToken(string token)
-    {
-        bool success = false;
-        // decrypt & val
-
-        return success; 
+    {   
+        // valid
+        return false; 
     }
 }
