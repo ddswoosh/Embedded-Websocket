@@ -28,4 +28,10 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ControllersTests\" />
+    <Folder Include="ModelsTests\" />
+    <Folder Include="ViewsTests\" />
+  </ItemGroup>
+
 </Project>
