@@ -1,7 +1,7 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
-namespace Server.Models;
+namespace Server.Entities;
 
 public class UserContext : DbContext
 {   

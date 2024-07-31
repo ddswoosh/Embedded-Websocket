@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Server.UnitTests.ControllersTests
+namespace Server.UnitTests.ModelsTests
 {
-    public class PinControllerTests
+    public class DatabaseModelTests
     {
     }
 }

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Server.Models;
+namespace Server.Entities;
 
 public class JWT {
     private const string Key = "3bXanrU5QUqjF6SNRi8khm8U+jNnF9ddBWy4qX4Et4s=";
