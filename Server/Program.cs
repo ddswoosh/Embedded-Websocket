@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
 using Server.Models;
+using Server.Entities;
 using Microsoft.Extensions.Options;
 using System.Text;
 
