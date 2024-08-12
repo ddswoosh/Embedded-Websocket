@@ -37,21 +37,25 @@ public class AccountController : Controller
     public async Task<string?> TryLogin()
     {
         StreamReader body = new StreamReader(HttpContext.Request.Body); 
-        string[] user = ReadJson(body);
+        string[] json_user = ReadJson(body);
         
-        user[0] = user[0][1..(user[0].Length-1)];
-        user[1] = user[1][1..(user[1].Length-1)];
+        json_user[0] = json_user[0][1..(json_user[0].Length-1)];
+        json_user[1] = json_user[1][1..(json_user[1].Length-1)];
 
-        User[] entity = db.GetUser(user);
+        User[] entity_arr = db.GetUser(json_user);
 
-        if (entity == null)
+        if (entity_arr == null)
         {
             return "Account not found, please new credentials or register your account.";
             
         }
+        
+        User entity = new User();
+        entity.Username = entity_arr[0].Username;
+        entity.Username = entity_arr[0].Password;
 
-        string info = jwt.CreateToken(entity);
-        return info;
+        string token = jwt.CreateToken(entity);
+        return token;
         
     }
     
@@ -61,21 +65,21 @@ public class AccountController : Controller
     public async Task<string> TryRegister()
     {
         StreamReader body = new StreamReader(HttpContext.Request.Body); 
-        string[] user = ReadJson(body);
+        string[] json_user = ReadJson(body);
 
         User entity = new User();
-        entity.Username = user[0][1..(user[0].Length-1)];
-        entity.Password = user[1][1..(user[1].Length-1)];
-        entity.Type = user[2][1..(user[2].Length-1)];
-        entity.API = user[3][1..(user[3].Length-1)];
+        entity.Username = json_user[0][1..(json_user[0].Length-1)];
+        entity.Password = json_user[1][1..(json_user[1].Length-1)];
+        entity.Type = json_user[2][1..(json_user[2].Length-1)];
+        entity.API = json_user[3][1..(json_user[3].Length-1)];
 
-        if (db.SetUser(user, entity))
+        if (db.SetUser(json_user, entity))
         {
             return "Account was found with those credentials, please log in or sign up with a different username and password.";
-        }
+        }   
 
-        // Create JWT and return it as string, store local client storage
-        return "Account created successfully";
+        string token = jwt.CreateToken(entity);
+        return token;
     }
 
     public string[] ReadJson(StreamReader body)

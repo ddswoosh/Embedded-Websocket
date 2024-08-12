@@ -136,3 +136,5 @@ c:\Users\ddswoosh\embedded-web-socket\Server\obj\Debug\net8.0\refint\Server.dll
 c:\Users\ddswoosh\embedded-web-socket\Server\obj\Debug\net8.0\Server.pdb
 c:\Users\ddswoosh\embedded-web-socket\Server\obj\Debug\net8.0\Server.genruntimeconfig.cache
 c:\Users\ddswoosh\embedded-web-socket\Server\obj\Debug\net8.0\ref\Server.dll
+C:\Users\ddswoosh\embedded-web-socket\Server\bin\Debug\net8.0\AWSSDK.Core.dll
+C:\Users\ddswoosh\embedded-web-socket\Server\bin\Debug\net8.0\AWSSDK.SecretsManager.dll

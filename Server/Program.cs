@@ -5,6 +5,7 @@ using Server.Models;
 using Server.Entities;
 using Microsoft.Extensions.Options;
 using System.Text;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
@@ -16,20 +17,6 @@ builder.Services.AddSingleton<PinInterface, PinLive>();
 builder.Services.AddDbContext<UserContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
     );
-
-builder.Services.AddAuthentication("Bearer").AddJwtBearer(options => 
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidIssuer = config["JWT:ValidIssuer"],
-        ValidAudience = config["JWT:ValidAudience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:Key"])),
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true
-    };
-});
 
 builder.Services.AddAuthorization();
 

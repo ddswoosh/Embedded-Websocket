@@ -8,6 +8,8 @@
     ".NETCoreApp,Version=v8.0": {
       "Server/1.0.0": {
         "dependencies": {
+          "AWSSDK.Core": "3.7.400.4",
+          "AWSSDK.SecretsManager": "3.7.400.4",
           "Dapper": "2.1.35",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.6",
           "Microsoft.Data.SqlClient": "5.2.0",
@@ -16,6 +18,25 @@
         },
         "runtime": {
           "Server.dll": {}
+        }
+      },
+      "AWSSDK.Core/3.7.400.4": {
+        "runtime": {
+          "lib/net8.0/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.400.4"
+          }
+        }
+      },
+      "AWSSDK.SecretsManager/3.7.400.4": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.400.4"
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.SecretsManager.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.400.4"
+          }
         }
       },
       "Azure.Core/1.35.0": {
@@ -807,6 +828,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AWSSDK.Core/3.7.400.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ufs+f3j9SPOa83Gr1EgcI67umMu01dOR8hwrYM0zdDO4ec0riw2DIRO8yIQcXL73UuKs0fQE6idAZT415MUL/w==",
+      "path": "awssdk.core/3.7.400.4",
+      "hashPath": "awssdk.core.3.7.400.4.nupkg.sha512"
+    },
+    "AWSSDK.SecretsManager/3.7.400.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FJ9rbMToVmUrOFep2s4Loxn5GocQxx8A+L2AnBSk8TZL+p6IM+dt06PQIdUcPO8ViHQs9KIZgrQhrPaAB/dq+w==",
+      "path": "awssdk.secretsmanager/3.7.400.4",
+      "hashPath": "awssdk.secretsmanager.3.7.400.4.nupkg.sha512"
     },
     "Azure.Core/1.35.0": {
       "type": "package",
