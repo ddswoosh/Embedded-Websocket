@@ -2,6 +2,35 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "AWSSDK.Core/3.7.400.4": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/AWSSDK.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "AWSSDK.SecretsManager/3.7.400.4": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[3.7.400.4, 4.0.0)"
+        },
+        "compile": {
+          "lib/net8.0/AWSSDK.SecretsManager.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.SecretsManager.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "Azure.Core/1.35.0": {
         "type": "package",
         "dependencies": {
@@ -1326,6 +1355,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "AWSSDK.Core": "3.7.400.4",
+          "AWSSDK.SecretsManager": "3.7.400.4",
           "Dapper": "2.1.35",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.6",
           "Microsoft.Data.SqlClient": "5.2.0",
@@ -1344,6 +1375,67 @@
     }
   },
   "libraries": {
+    "AWSSDK.Core/3.7.400.4": {
+      "sha512": "ufs+f3j9SPOa83Gr1EgcI67umMu01dOR8hwrYM0zdDO4ec0riw2DIRO8yIQcXL73UuKs0fQE6idAZT415MUL/w==",
+      "type": "package",
+      "path": "awssdk.core/3.7.400.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "awssdk.core.3.7.400.4.nupkg.sha512",
+        "awssdk.core.nuspec",
+        "images/AWSLogo.png",
+        "lib/net35/AWSSDK.Core.dll",
+        "lib/net35/AWSSDK.Core.pdb",
+        "lib/net35/AWSSDK.Core.xml",
+        "lib/net45/AWSSDK.Core.dll",
+        "lib/net45/AWSSDK.Core.pdb",
+        "lib/net45/AWSSDK.Core.xml",
+        "lib/net8.0/AWSSDK.Core.dll",
+        "lib/net8.0/AWSSDK.Core.pdb",
+        "lib/net8.0/AWSSDK.Core.xml",
+        "lib/netcoreapp3.1/AWSSDK.Core.dll",
+        "lib/netcoreapp3.1/AWSSDK.Core.pdb",
+        "lib/netcoreapp3.1/AWSSDK.Core.xml",
+        "lib/netstandard2.0/AWSSDK.Core.dll",
+        "lib/netstandard2.0/AWSSDK.Core.pdb",
+        "lib/netstandard2.0/AWSSDK.Core.xml",
+        "tools/account-management.ps1"
+      ]
+    },
+    "AWSSDK.SecretsManager/3.7.400.4": {
+      "sha512": "FJ9rbMToVmUrOFep2s4Loxn5GocQxx8A+L2AnBSk8TZL+p6IM+dt06PQIdUcPO8ViHQs9KIZgrQhrPaAB/dq+w==",
+      "type": "package",
+      "path": "awssdk.secretsmanager/3.7.400.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.SecretsManager.CodeAnalysis.dll",
+        "analyzers/dotnet/cs/SharedAnalysisCode.dll",
+        "awssdk.secretsmanager.3.7.400.4.nupkg.sha512",
+        "awssdk.secretsmanager.nuspec",
+        "images/AWSLogo.png",
+        "lib/net35/AWSSDK.SecretsManager.dll",
+        "lib/net35/AWSSDK.SecretsManager.pdb",
+        "lib/net35/AWSSDK.SecretsManager.xml",
+        "lib/net45/AWSSDK.SecretsManager.dll",
+        "lib/net45/AWSSDK.SecretsManager.pdb",
+        "lib/net45/AWSSDK.SecretsManager.xml",
+        "lib/net8.0/AWSSDK.SecretsManager.dll",
+        "lib/net8.0/AWSSDK.SecretsManager.pdb",
+        "lib/net8.0/AWSSDK.SecretsManager.xml",
+        "lib/netcoreapp3.1/AWSSDK.SecretsManager.dll",
+        "lib/netcoreapp3.1/AWSSDK.SecretsManager.pdb",
+        "lib/netcoreapp3.1/AWSSDK.SecretsManager.xml",
+        "lib/netstandard2.0/AWSSDK.SecretsManager.dll",
+        "lib/netstandard2.0/AWSSDK.SecretsManager.pdb",
+        "lib/netstandard2.0/AWSSDK.SecretsManager.xml",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
     "Azure.Core/1.35.0": {
       "sha512": "hENcx03Jyuqv05F4RBEPbxz29UrM3Nbhnr6Wl6NQpoU9BCIbL3XLentrxDCTrH54NLS11Exxi/o8MYgT/cnKFA==",
       "type": "package",

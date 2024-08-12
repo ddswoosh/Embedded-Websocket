@@ -23,13 +23,46 @@ namespace Server.UnitTests.ControllersTests
         [Fact]
         public void ManageViewTest()
         {
-            controller.Should().BeOfType<ViewResult>();
+            controller.Manage().Should().BeOfType<ViewResult>();
+        }
+
+        [Fact]
+        public void RegisterViewTest()
+        {
+            controller.Register().Should().BeOfType<ViewResult>();
+        }
+
+        [Fact]
+        public void LoginViewTest()
+        {
+            controller.Login().Should().BeOfType<ViewResult>();
+        }
+
+        [Fact]
+        public void TryLoginStringTest()
+        {
 
         }
-    
-    
 
-        // API Tests
-  
+        [Fact]
+        public void TryRegisterStringTest()
+        {
+
+        }
+
+        [Fact]
+        public void ReadJsonStringTest()
+        {
+            StreamReader body = new StreamReader(
+                "username:testing,password:testing"
+            );
+
+            controller.ReadJson(body).Should().BeOfType<string[]>();
+            controller.ReadJson(body).Should().BeEquivalentTo(
+                new string[] {"testing", "testing" }
+            );
+            
+        }
+
     }
 }
