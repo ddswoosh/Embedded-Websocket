@@ -2,6 +2,8 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Server.Entities;
+using Server.Configurations;
+using Server.Utils;
 
 namespace Server.Controllers;
 
@@ -9,6 +11,7 @@ namespace Server.Controllers;
 public class AccountController : Controller
 {
     private UserContext db;
+    private Parser parser = new Parser();
     private JWT jwt = new JWT();
     public AccountController(UserContext db)
     {
@@ -16,6 +19,8 @@ public class AccountController : Controller
     }
     public IActionResult Manage()
     {
+        Configuration test = new Configuration();
+        test.GetSecret();
         return View();   
     }
     
@@ -37,7 +42,7 @@ public class AccountController : Controller
     public async Task<string?> TryLogin()
     {
         StreamReader body = new StreamReader(HttpContext.Request.Body); 
-        string[] json_user = ReadJson(body);
+        string[] json_user = parser.ParseStream(body);
         
         json_user[0] = json_user[0][1..(json_user[0].Length-1)];
         json_user[1] = json_user[1][1..(json_user[1].Length-1)];
@@ -65,7 +70,7 @@ public class AccountController : Controller
     public async Task<string> TryRegister()
     {
         StreamReader body = new StreamReader(HttpContext.Request.Body); 
-        string[] json_user = ReadJson(body);
+        string[] json_user = parser.ParseStream(body);
 
         User entity = new User();
         entity.Username = json_user[0][1..(json_user[0].Length-1)];
@@ -82,28 +87,4 @@ public class AccountController : Controller
         return token;
     }
 
-    public string[] ReadJson(StreamReader body)
-    {
-        Task<string> buffer = body.ReadToEndAsync();
-        string unwrap = buffer.Result;
-
-        int size = unwrap.Length - 1;
-        unwrap = unwrap[1..size];
-
-        Dictionary<string, string> json = unwrap
-        .Split(',')
-        .Select (part  => part.Split(':'))
-        .ToDictionary (sp => sp[0], sp => sp[1]);
-
-        string[] user = new string[4];
-        int i = 0;
-
-        foreach(KeyValuePair<string, string> temp in json)
-        {
-            user[i] = temp.Value;
-            i++;
-        }
-
-        return user;
-    }
 }

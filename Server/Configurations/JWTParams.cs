@@ -2,13 +2,15 @@ using Microsoft.IdentityModel.Tokens;
 using Amazon;
 using Amazon.SecretsManager;
 using Amazon.SecretsManager.Model;
+using Server.Utils;
 
 namespace Server.Configurations;
 
 // Would be git ignored in production 
 public class Configuration
 {
-    public static async Task GetSecret()
+    private Parser parser = new Parser();
+    public async Task<string[]> GetSecret()
     {
         string secretName = "embedded/configuration";
         string region = "us-east-1";
@@ -18,6 +20,7 @@ public class Configuration
         GetSecretValueRequest request = new GetSecretValueRequest
         {
             SecretId = secretName,
+            
             VersionStage = "AWSCURRENT",
         };
 
@@ -31,10 +34,8 @@ public class Configuration
         {
             throw e;
         }
-
-        string secret = response.SecretString;
-
-        Console.WriteLine(secret);
+            return parser.ParseJson(response.SecretString);
+            
     }
 }
 public class JwtSecurityTokenParameters

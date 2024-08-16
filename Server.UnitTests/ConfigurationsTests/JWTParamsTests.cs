@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Server.Configurations;
 
 namespace Server.UnitTests.ConfigurationsTests
@@ -10,9 +11,10 @@ namespace Server.UnitTests.ConfigurationsTests
     public class JWTParamsTests
     {
         [Fact]
-        public async void GetSecretStringTest()
+        public void GetSecretStringTest()
         {
-            await Configuration.GetSecret();
+            Configuration.GetSecret();
+           
         }
     }
 }
