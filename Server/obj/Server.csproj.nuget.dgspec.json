@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ddswoosh\\embedded-web-socket\\Server\\Server.csproj": {}
+    "c:\\Users\\ddswoosh\\embedded-web-socket\\Server\\Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ddswoosh\\embedded-web-socket\\Server\\Server.csproj": {
+    "c:\\Users\\ddswoosh\\embedded-web-socket\\Server\\Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ddswoosh\\embedded-web-socket\\Server\\Server.csproj",
+        "projectUniqueName": "c:\\Users\\ddswoosh\\embedded-web-socket\\Server\\Server.csproj",
         "projectName": "Server",
-        "projectPath": "C:\\Users\\ddswoosh\\embedded-web-socket\\Server\\Server.csproj",
+        "projectPath": "c:\\Users\\ddswoosh\\embedded-web-socket\\Server\\Server.csproj",
         "packagesPath": "C:\\Users\\ddswoosh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ddswoosh\\embedded-web-socket\\Server\\obj\\",
+        "outputPath": "c:\\Users\\ddswoosh\\embedded-web-socket\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -3,11 +3,13 @@ using Amazon;
 using Amazon.SecretsManager;
 using Amazon.SecretsManager.Model;
 using Server.Utils;
+using System.Text;
+
 
 namespace Server.Configurations;
 
 // Would be git ignored in production 
-public class Configuration
+public class AWSSecrets
 {
     private Parser parser = new Parser();
     public async Task<string[]> GetSecret()
@@ -30,24 +32,38 @@ public class Configuration
         {
             response = await client.GetSecretValueAsync(request);
         }
+
         catch (Exception e)
         {
             throw e;
         }
-            return parser.ParseJson(response.SecretString);
-            
+
+        return parser.ParseJson(response.SecretString);  
     }
 }
-public class JwtSecurityTokenParameters
+internal class JwtSecurityTokenParameters : TokenValidationParameters
 {
-    // TokenValidationParameters JWTconfig = new TokenValidationParameters
-    // {
-    //     ValidIssuer = config["JWT:ValidIssuer"],
-    //     ValidAudience = config["JWT:ValidAudience"],
-    //     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:Key"])),
-    //     ValidateIssuer = true,
-    //     ValidateAudience = true,
-    //     ValidateLifetime = true,
-    //     ValidateIssuerSigningKey = true
-    // };
+    private readonly AWSSecrets secrets_manger = new AWSSecrets();
+
+    internal async Task<TokenValidationParameters> ValidParams()
+    {
+        string[] secrets = await secrets_manger.GetSecret();
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secrets[3]));
+        var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+        TokenValidationParameters JWTconfig = new TokenValidationParameters
+        {
+        
+        ValidIssuer = secrets[2],
+        ValidAudience = "http://localhost:5203",
+        IssuerSigningKey = key,
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        };
+
+        return JWTconfig;
+    }
+    
 }

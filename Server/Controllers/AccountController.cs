@@ -10,17 +10,16 @@ namespace Server.Controllers;
 // [Authorize(Policy = "ValidateToken")]
 public class AccountController : Controller
 {
+    
     private UserContext db;
     private Parser parser = new Parser();
-    private JWT jwt = new JWT();
-    public AccountController(UserContext db)
+    public AccountController(UserContext db, AWSSecrets secrets_manager)
     {
         this.db = db;
     }
+
     public IActionResult Manage()
     {
-        Configuration test = new Configuration();
-        test.GetSecret();
         return View();   
     }
     
@@ -51,23 +50,24 @@ public class AccountController : Controller
 
         if (entity_arr == null)
         {
-            return "Account not found, please new credentials or register your account.";
+            return "h";
             
         }
         
         User entity = new User();
         entity.Username = entity_arr[0].Username;
-        entity.Username = entity_arr[0].Password;
+        entity.Password = entity_arr[0].Password;
+        entity.Type = entity_arr[0].Type;
 
-        string token = jwt.CreateToken(entity);
+        JWT jwt = new JWT();
+        string token = await jwt.Create(entity);
         return token;
-        
     }
     
     [AllowAnonymous]
     [Route("/Account/TryRegister")]
     [HttpPost]
-    public async Task<string> TryRegister()
+    public async Task<string?> TryRegister()
     {
         StreamReader body = new StreamReader(HttpContext.Request.Body); 
         string[] json_user = parser.ParseStream(body);
@@ -80,11 +80,12 @@ public class AccountController : Controller
 
         if (db.SetUser(json_user, entity))
         {
-            return "Account was found with those credentials, please log in or sign up with a different username and password.";
+            return null;
         }   
 
-        string token = jwt.CreateToken(entity);
+        JWT jwt = new JWT();
+        string token = await jwt.Create(entity);
+
         return token;
     }
-
 }
