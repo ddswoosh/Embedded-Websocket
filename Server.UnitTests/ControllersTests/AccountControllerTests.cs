@@ -7,12 +7,15 @@ using Server.Controllers;
 using Moq;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
+using Server.Configurations;
+using Server.Utils;
 
 namespace Server.UnitTests.ControllersTests
 {
     public class AccountControllerTests
     {
         private AccountController controller;
+        private Parser parser = new Parser();
         public AccountControllerTests()
         {
             this.controller = Mock.Of<AccountController>();
@@ -57,8 +60,8 @@ namespace Server.UnitTests.ControllersTests
                 "username:testing,password:testing"
             );
 
-            controller.ReadJson(body).Should().BeOfType<string[]>();
-            controller.ReadJson(body).Should().BeEquivalentTo(
+            parser.ParseStream(body).Should().BeOfType<string[]>();
+            parser.ParseStream(body).Should().BeEquivalentTo(
                 new string[] {"testing", "testing" }
             );
             

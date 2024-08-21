@@ -8,7 +8,6 @@ using System.Text;
 
 namespace Server.Configurations;
 
-// Would be git ignored in production 
 public class AWSSecrets
 {
     private Parser parser = new Parser();

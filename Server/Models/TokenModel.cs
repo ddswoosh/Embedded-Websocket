@@ -51,6 +51,7 @@ internal class JWT {
 
         SecurityToken validated_token;
         handler.ValidateToken(token, token_params, out validated_token);
+        
         return validated_token;
   
     }

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\ddswoosh\embedded-web-socket\Server\bin\Release\net8.0\publish\</_PublishTargetUrl>
+    <History>True|2024-08-20T06:22:47.7248471Z||;True|2024-08-19T23:21:06.1665251-07:00||;True|2024-08-19T23:16:48.5395129-07:00||;True|2024-08-19T22:08:30.2927933-07:00||;True|2024-08-19T22:08:13.8978693-07:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

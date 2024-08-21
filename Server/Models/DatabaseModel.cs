@@ -6,9 +6,9 @@ namespace Server.Entities;
 public class UserContext : DbContext
 {   
     private DbContextOptions<UserContext> context;
-    public UserContext(DbContextOptions<UserContext> db) : base(db)
+    public UserContext(DbContextOptions<UserContext> context) : base(context)
     {
-        this.context = db;
+        this.context = context;
     }
 
     public DbSet<User> Users {get; set;}
@@ -43,7 +43,7 @@ public class UserContext : DbContext
             {   
                 return null;
             }
-
+            
             return entity;
         }
     }

@@ -10,30 +10,19 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Server.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
-var config = builder.Configuration;
-
+builder.Services.Configure<IISOptions>(options =>
+{
+    options.ForwardClientCertificate = false;
+});
 builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<PinInterface, PinLive>();
 builder.Services.AddSingleton<AWSSecrets>();
 
-
 builder.Services.AddDbContext<UserContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
     );
 
-TokenValidationParameters JWTconfig = new TokenValidationParameters
-    {
-        ValidIssuer = config["JWT:ValidIssuer"],
-        ValidAudience = config["JWT:ValidAudience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:Key"])),
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true
-    };
-
-builder.Services.AddSingleton(JWTconfig);
 builder.Services.AddAuthorization();
 
 var app = builder.Build();

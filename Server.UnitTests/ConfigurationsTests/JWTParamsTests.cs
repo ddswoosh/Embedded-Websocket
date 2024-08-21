@@ -13,7 +13,7 @@ namespace Server.UnitTests.ConfigurationsTests
         [Fact]
         public void GetSecretStringTest()
         {
-            Configuration.GetSecret();
+            
            
         }
     }

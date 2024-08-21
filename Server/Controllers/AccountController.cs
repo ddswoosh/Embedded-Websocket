@@ -18,6 +18,7 @@ public class AccountController : Controller
         this.db = db;
     }
 
+    [Authorize]
     public IActionResult Manage()
     {
         return View();   
@@ -36,9 +37,11 @@ public class AccountController : Controller
     }
 
     [AllowAnonymous]
-    [Route("/Account/TryLogin")]
+    [Route("/TryLogin")]
     [HttpPost]
-    public async Task<string?> TryLogin()
+    [ProducesResponseType<string>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> TryLogin()
     {
         StreamReader body = new StreamReader(HttpContext.Request.Body); 
         string[] json_user = parser.ParseStream(body);
@@ -46,11 +49,11 @@ public class AccountController : Controller
         json_user[0] = json_user[0][1..(json_user[0].Length-1)];
         json_user[1] = json_user[1][1..(json_user[1].Length-1)];
 
-        User[] entity_arr = db.GetUser(json_user);
+        User[]? entity_arr = db.GetUser(json_user);
 
         if (entity_arr == null)
         {
-            return "h";
+            return NotFound();
             
         }
         
@@ -58,14 +61,14 @@ public class AccountController : Controller
         entity.Username = entity_arr[0].Username;
         entity.Password = entity_arr[0].Password;
         entity.Type = entity_arr[0].Type;
-
+    
         JWT jwt = new JWT();
         string token = await jwt.Create(entity);
-        return token;
+        return Ok(token);
     }
     
     [AllowAnonymous]
-    [Route("/Account/TryRegister")]
+    [Route("/TryRegister")]
     [HttpPost]
     public async Task<string?> TryRegister()
     {
