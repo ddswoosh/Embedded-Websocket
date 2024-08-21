@@ -56,7 +56,7 @@ public class AccountController : Controller
             return NotFound();
             
         }
-        
+        // *
         User entity = new User();
         entity.Username = entity_arr[0].Username;
         entity.Password = entity_arr[0].Password;
