@@ -31,13 +31,25 @@
                 })
                 .then(res => {
                     if (!res.ok){
-                        alert("User not found"); 
+                        alert("User not found");
                     } else {
                         return res.text(); 
                     }
                 })
                 .then(token => {
-                    sessionStorage.setItem("JWT", token)
+                    if (token === undefined) {
+                        return;
+                    } else {
+                        sessionStorage.setItem("JWT", token)
+                    }
+                });
+                
+                var token = sessionStorage.getItem("JWT");
+                await fetch(`/Manage`, {
+                    method: "GET",
+                    body: JSON.stringify({
+                        token
+                    })
                 });
             }
 

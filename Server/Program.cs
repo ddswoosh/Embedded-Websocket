@@ -23,7 +23,10 @@ builder.Services.AddDbContext<UserContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
     );
 
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ValidateJWT", policy => policy.RequireClaim("user"));
+});
 
 var app = builder.Build();
 

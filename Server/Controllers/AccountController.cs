@@ -4,13 +4,14 @@ using Microsoft.AspNetCore.Mvc;
 using Server.Entities;
 using Server.Configurations;
 using Server.Utils;
+using Server.Models;
 
 namespace Server.Controllers;
 
-// [Authorize(Policy = "ValidateToken")]
+[Authorize(Policy = "ValidateJWT")]
 public class AccountController : Controller
 {
-    
+    private JWT jwt = new JWT();
     private UserContext db;
     private Parser parser = new Parser();
     public AccountController(UserContext db, AWSSecrets secrets_manager)
@@ -18,9 +19,10 @@ public class AccountController : Controller
         this.db = db;
     }
 
-    [Authorize]
-    public IActionResult Manage()
+    [AllowAnonymous]
+    public async Task<IActionResult> Manage(string token)
     {
+        await jwt.ValidateJWT(token);   
         return View();   
     }
     
@@ -42,8 +44,9 @@ public class AccountController : Controller
     [ProducesResponseType<string>(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> TryLogin()
-    {
-        StreamReader body = new StreamReader(HttpContext.Request.Body); 
+    {   
+        // [FromBody] next
+        StreamReader body = new StreamReader(HttpContext.Request.Body);
         string[] json_user = parser.ParseStream(body);
         
         json_user[0] = json_user[0][1..(json_user[0].Length-1)];
@@ -61,9 +64,9 @@ public class AccountController : Controller
         entity.Username = entity_arr[0].Username;
         entity.Password = entity_arr[0].Password;
         entity.Type = entity_arr[0].Type;
-    
-        JWT jwt = new JWT();
-        string token = await jwt.Create(entity);
+
+        string token = await jwt.CreateJWT(entity);
+
         return Ok(token);
     }
     
@@ -72,7 +75,8 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<string?> TryRegister()
     {
-        StreamReader body = new StreamReader(HttpContext.Request.Body); 
+        // [FromBody] next
+        StreamReader body = new StreamReader(HttpContext.Request.Body);
         string[] json_user = parser.ParseStream(body);
 
         User entity = new User();
@@ -86,8 +90,7 @@ public class AccountController : Controller
             return null;
         }   
 
-        JWT jwt = new JWT();
-        string token = await jwt.Create(entity);
+        string token = await jwt.CreateJWT(entity);
 
         return token;
     }

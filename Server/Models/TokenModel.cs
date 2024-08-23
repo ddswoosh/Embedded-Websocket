@@ -9,6 +9,7 @@ using Amazon.SecretsManager.Model.Internal.MarshallTransformations;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Microsoft.AspNetCore.Mvc.Razor.Infrastructure;
 using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 using Server.Configurations;
@@ -21,7 +22,7 @@ internal class JWT {
     private readonly AWSSecrets secrets_manager = new AWSSecrets();
     private readonly JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
 
-    internal async Task<string> Create(User entity)
+    internal async Task<string> CreateJWT(User entity)
     {
         string[] secrets = await secrets_manager.GetSecret();
         
@@ -33,7 +34,6 @@ internal class JWT {
             audience: "http://localhost:5203",
             claims: new List<Claim>
             {
-                new Claim(ClaimTypes.Name, entity.Username),
                 new Claim(ClaimTypes.Name, entity.Type),
             },
             expires: DateTime.UtcNow.AddHours(1),
@@ -45,15 +45,23 @@ internal class JWT {
         return token;
     }
 
-    internal async Task<SecurityToken> Validate(string token)
+    internal async Task<Claim?> ValidateJWT(string token)
     {   
         TokenValidationParameters token_params = await parameters.ValidParams();
 
         SecurityToken validated_token;
         handler.ValidateToken(token, token_params, out validated_token);
-        
-        return validated_token;
-  
+        Console.WriteLine(validated_token.ValidFrom);
+
+        // if (DateTime.UtcNow > validated_token.ValidFrom && DateTime.UtcNow < validated_token.ValidTo)
+        // {
+        //     var temp = handler.ReadJwtToken(token);
+        //     List<Claim> arr = new List<Claim>(temp.Claims);
+
+        //     return arr[0];
+        // }
+
+        return null;
     }
 }
 
