@@ -5,6 +5,7 @@ using Server.Entities;
 using Server.Configurations;
 using Server.Utils;
 using Server.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Server.Controllers;
 
@@ -19,11 +20,20 @@ public class AccountController : Controller
         this.db = db;
     }
 
-    [AllowAnonymous]
+    [Authorize]
     public async Task<IActionResult> Manage(string token)
     {
-        await jwt.ValidateJWT(token);   
-        return View();   
+        // StreamReader body = new StreamReader(HttpContext.Request.Body);
+        // string[] temp = parser.ParseStream(body);
+        // string j = temp[0][1..];
+        // var size = j.Length - 1;
+        // j = j[0..size];
+        
+ 
+            return View(); 
+        
+
+    
     }
     
     [AllowAnonymous]
@@ -39,7 +49,7 @@ public class AccountController : Controller
     }
 
     [AllowAnonymous]
-    [Route("/TryLogin")]
+    [Route("Account/TryLogin")]
     [HttpPost]
     [ProducesResponseType<string>(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -71,7 +81,7 @@ public class AccountController : Controller
     }
     
     [AllowAnonymous]
-    [Route("/TryRegister")]
+    [Route("Account/TryRegister")]
     [HttpPost]
     public async Task<string?> TryRegister()
     {

@@ -48,7 +48,6 @@ internal class JwtSecurityTokenParameters : TokenValidationParameters
     {
         string[] secrets = await secrets_manger.GetSecret();
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secrets[3]));
-        var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         TokenValidationParameters JWTconfig = new TokenValidationParameters
         {
@@ -60,6 +59,7 @@ internal class JwtSecurityTokenParameters : TokenValidationParameters
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
+
         };
 
         return JWTconfig;

@@ -28,8 +28,8 @@ internal class JWT {
         
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secrets[3]));
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-        var description = new JwtSecurityToken(
 
+        var description = new JwtSecurityToken(
             issuer: secrets[2],
             audience: "http://localhost:5203",
             claims: new List<Claim>
@@ -45,14 +45,17 @@ internal class JWT {
         return token;
     }
 
-    internal async Task<Claim?> ValidateJWT(string token)
+    internal async Task<bool> ValidateJWT(string token)
     {   
         TokenValidationParameters token_params = await parameters.ValidParams();
 
         SecurityToken validated_token;
         handler.ValidateToken(token, token_params, out validated_token);
-        Console.WriteLine(validated_token.ValidFrom);
-
+        
+        if (DateTime.UtcNow > validated_token.ValidTo)
+        {
+            return false;
+        }
         // if (DateTime.UtcNow > validated_token.ValidFrom && DateTime.UtcNow < validated_token.ValidTo)
         // {
         //     var temp = handler.ReadJwtToken(token);
@@ -61,7 +64,7 @@ internal class JWT {
         //     return arr[0];
         // }
 
-        return null;
+        return true;
     }
 }
 

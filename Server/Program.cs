@@ -23,9 +23,8 @@ builder.Services.AddDbContext<UserContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
     );
 
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("ValidateJWT", policy => policy.RequireClaim("user"));
+builder.Services.AddAuthorization(policy => {
+    
 });
 
 var app = builder.Build();
@@ -39,7 +38,6 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

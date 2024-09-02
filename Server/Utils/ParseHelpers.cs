@@ -34,15 +34,15 @@ public class Parser
         .Select (part  => part.Split(':'))
         .ToDictionary (sp => sp[0], sp => sp[1]);
 
-        string[] secrets = new string[100];
+        string[] arr = new string[100];
         int i = 0;
 
         foreach(KeyValuePair<string, string> temp in json)
         {
-            secrets[i] = temp.Value;
+            arr[i] = temp.Value;
             i++;
         }
 
-        return secrets;
+        return arr;
     }
 }

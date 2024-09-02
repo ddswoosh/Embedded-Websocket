@@ -14,7 +14,6 @@
         <button class="buttonSelect" id="regButton" onclick="RegisterRedirect()">Register</button>
         <button class="buttonSelect" id="logButton" onclick="TryLogin()">Login</button>
         <script>
-
             function RegisterRedirect() {
                 document.getElementById('registerButton').click();   
             }
@@ -23,7 +22,7 @@
                 let username = document.getElementById('username').value;
                 let password = document.getElementById('password').value;
 
-                await fetch(`/TryLogin`, {
+                await fetch(`https://calm-bonefish-internally.ngrok-free.app/Account/TryLogin`, {
                     method: "POST",
                     body: JSON.stringify({
                         "username":username,"password":password
@@ -37,25 +36,22 @@
                     }
                 })
                 .then(token => {
-                    if (token === undefined) {
-                        return;
-                    } else {
-                        sessionStorage.setItem("JWT", token)
+                    sessionStorage.setItem("JWT", token)
                     }
-                });
-                
-                var token = sessionStorage.getItem("JWT");
-                await fetch(`/Manage`, {
-                    method: "GET",
-                    body: JSON.stringify({
-                        token
-                    })
-                });
-            }
+                );
 
+                let token = sessionStorage.getItem("JWT");
+                
+                if (token === "undefined") {
+                    return;
+
+                } else {
+                    document.getElementById(`manageButton`).click(token);  
+                }
+            }
         </script>
         <a id="registerButton" asp-area="" asp-controller="Account" asp-action="Register"></a>
-        <a id="loginButton" asp-area="" asp-controller="Account" asp-action="Manage"></a>
+        <a id="manageButton" asp-area="" asp-controller="Account" asp-action="Manage"></a>
     </div>
 </div>
 
