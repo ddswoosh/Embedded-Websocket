@@ -1,4 +1,4 @@
-# Embedded System w/ Web Socket Server
+# Embedded System w/ Web Socket Server (In Progress)
 
 Cortex-M architecture microcontroller will be embedded and run bare metal with rust. The web socket server will be coded in C# and hosted on AWS for low latency and almost 0 downtime.
 
@@ -6,11 +6,11 @@ The embedded rust will interact with this microcontroller and all binary stored 
 
 
 # Tech Stack
-* Rust
+* Rust (Switching to C/C++)
 * C#
 * Cotex-M
 * AWS server hosting
-* Bare metal (Embedded) cargo
+* Bare metal cargo (Switching to C/C++)
 * Rest API/Web Socket
 * Relational Database
 * User authentication
